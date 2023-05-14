@@ -14,6 +14,25 @@ const App = () => {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
+    const fetchImages = () => {
+      if (nameSearchImage.trim() === '') {
+        return;
+      }
+
+      setLoading(true);
+
+      getImages(nameSearchImage, page)
+        .then(result => {
+          setImages(prevImages => [...prevImages, ...result.data.hits]);
+          setTotalHits(result.data.totalHits);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.log(error.message);
+          setLoading(false);
+        });
+    };
+
     fetchImages();
   }, [nameSearchImage, page]);
 
@@ -28,6 +47,7 @@ const App = () => {
     setPage(prevPage => prevPage + 1);
   };
 
+  // eslint-disable-next-line no-unused-vars
   const fetchImages = () => {
     if (nameSearchImage.trim() === '') {
       return;
