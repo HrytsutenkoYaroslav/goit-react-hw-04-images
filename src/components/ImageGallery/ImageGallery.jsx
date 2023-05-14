@@ -5,25 +5,27 @@ import Button from '../Button/Button';
 import Loader from '../Loader/Loader';
 import { ImageGalleryUl } from './ImageGallery.styled';
 
-const ImageGallery = ({ images, loading, totalHits, onIncrementPage }) => (
-  <>
-    <ImageGalleryUl>
-      {images &&
-        images.map(({ id, webformatURL, largeImageURL, tags }) => (
-          <ImageGalleryItem
-            key={id}
-            webformatURL={webformatURL}
-            largeImageURL={largeImageURL}
-            tags={tags}
-          />
-        ))}
-    </ImageGalleryUl>
+const ImageGallery = ({ images, loading, totalHits, onIncrementPage }) => {
+  return (
+    <>
+      <ImageGalleryUl>
+        {images &&
+          images.map(({ id, webformatURL, largeImageURL, tags }) => (
+            <ImageGalleryItem
+              key={id}
+              webformatURL={webformatURL}
+              largeImageURL={largeImageURL}
+              tags={tags}
+            />
+          ))}
+      </ImageGalleryUl>
 
-    {loading && <Loader />}
+      {loading && <Loader />}
 
-    {totalHits > 12 && <Button onClick={onIncrementPage} />}
-  </>
-);
+      {totalHits > 12 && <Button onClick={onIncrementPage} />}
+    </>
+  );
+};
 
 ImageGallery.propTypes = {
   images: PropTypes.array,

@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { BsSearch } from 'react-icons/bs';
-import {
-  SearchbarHeader,
-  SearchForm,
-  SearchFormButton,
-  SearchFormButtonLabel,
-  SearchFormInput,
-} from './Searchbar.styled';
+import { SearchbarHeader, SearchForm, SearchFormButton, SearchFormButtonLabel, SearchFormInput } from './Searchbar.styled';
 
 const Searchbar = ({ onSubmit }) => {
   const [searchRequest, setSearchRequest] = useState('');

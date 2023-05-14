@@ -1,5 +1,7 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { LoadMoreButton, ButtonDiv } from './Button.styled';
+
 const Button = ({ onClick }) => {
   return (
     <ButtonDiv>
@@ -9,10 +11,10 @@ const Button = ({ onClick }) => {
     </ButtonDiv>
   );
 };
-export default Button;
 
 Button.propTypes = {
   onClick: PropTypes.func,
 };
 
+export default Button;
 
